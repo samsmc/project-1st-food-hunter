@@ -20,7 +20,7 @@ The __MVP__ will cover the following:
 
 ## Wireframes    
 
-
+<img src="images/Wireframe-layout.jpg">
 
 
 ## Data Structure ##
@@ -55,7 +55,7 @@ The API(s) you are using
 
 
 ### Trello (list of tasks)
-[Link url](https://trello.com)
+[Trello Board](https://trello.com/b/lRUn9X2z/food-hunter)
 
 
 ### Github
