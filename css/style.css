@@ -1,0 +1,219 @@
+/*Import font */
+@font-face {
+    font-family: 'Indie Flower', cursive;
+    src: url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+    font-weight: bold;
+    font-style: normal;
+  }
+  
+  /* Make text responsive */
+  html {
+    font-size: 14px;
+  }
+  
+  @media (max-width: 450px) {
+    .food-fact>p {
+      padding: 50% 3%;
+    }
+  }
+  
+  @media (min-width: 450px) {
+    html {
+      font-size: 0.9rem;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    html {
+      font-size: 1rem;
+    }
+  }
+  
+  @media (min-width: 992px) {
+    html {
+      font-size: 1.1rem;
+    }
+  }
+  
+  @media (min-width: 1200px) {
+    html {
+      font-size: 1.1rem;
+    }
+  
+    .food-fact>p {
+      padding-top: 12%;
+      padding-bottom: 5%;
+    }
+  }
+  
+  
+  
+  /* Text styles */
+  .burbank {
+    font-family: 'Indie Flower', cursive;
+  }
+  
+  .text-sm {
+    font-size: 1.5rem;
+  }
+  
+  .text-md {
+    font-size: 2rem;
+  }
+  
+  .text-lg {
+    font-size: 5rem;
+  }
+  
+  .bg-lettuce {
+    background-color: #ac3636;
+  }
+  
+  .text-lettuce {
+    color: #b06b12;
+  }
+  
+  /* Black outline for title letters */
+  .black-outline {
+    -webkit-text-fill-color: red;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+  }
+  
+  
+  /* Navbar */
+  .navbar-brand {
+    width: 10em;
+  }
+  
+  .custom-toggler .navbar-toggler-icon {
+    background-image: url("./images/FH3.jpg");
+  }
+  
+  .navbar-light .navbar-nav > .active,
+  .navbar-light .navbar-nav > .active:hover,
+  .navbar-light .navbar-nav > .active:focus {
+    color: #b06b12;
+    background-color: transparent;
+  }
+  
+  .navbar-light .navbar-nav .nav-link:hover {
+    color: #b06b12;
+    background-color: transparent;
+  }
+  
+  .navbar-light .navbar-nav .dropdown-item:hover {
+    color: white;
+    background-color: #b06b12;
+  }
+  
+  .navbar-light .navbar-nav .active > .nav-link,
+  .navbar-light .navbar-nav .nav-link.active,
+  .navbar-light .navbar-nav .nav-link.show,
+  .navbar-light .navbar-nav .show > .nav-link {
+    color: #b06b12;
+    background-color: transparent;
+  }
+  
+  /* Home page background image */
+  .home-image {
+    height: 50rem;
+    padding-bottom: 30px;
+    background: url(../images/img-background.jpg) no-repeat center center;
+    background-size: cover;
+  }
+
+  .home-imageCuisine {
+    height: 50rem;
+    padding-bottom: 30px;
+    background: url(../images/chefs.png) no-repeat center center;
+    background-size: contain;
+  }
+  
+  /* Making Youtube videos responsive */
+  .video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px;
+    height: 0;
+    overflow: hidden;
+  }
+  
+  .video-container iframe,
+  .video-container object,
+  .video-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  /* Food fact box */
+  .food-fact {
+    border-bottom: 250px solid #b06b12;
+    border-left: 8px solid transparent;
+    border-right: 14px solid transparent;
+    height: 0;
+    margin-top: 30px;
+    transform: rotate(2deg);
+  }
+  
+  .food-fact > p {
+    padding: 15% 3%;
+    color: white;
+  }
+  
+  /* Make feature images smaller */
+  .feature-img {
+    height: 90px;
+  }
+  
+  /* FAQ styling */
+  .faq > li {
+    list-style: none;
+  }
+  
+  .food-icon {
+    width: 60px;;
+  }
+  
+  /* Card shadows */
+  .card {
+    box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
+    0px 4px 5px 0px rgba(0, 0, 0, 0.14),
+    0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+    width: 25rem;
+  }
+  
+  /* Placing checkmarks over images */
+  .ingredients-wrapper {
+    position: relative;
+    max-height: 400px;
+    max-width: 400px;
+  }
+  
+  .ingredients-input {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+    width: 30%;
+    height: 30%;
+    z-index: 99;
+  }
+  
+  .ingredients-select {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+  }
+  
+  .ingredients-input:checked {
+    opacity: 1;
+    background-color: #b06b12;
+    width: 25px;
+    height: 25px;
+  }

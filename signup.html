@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Find famous recipes by country</title>
+  <!--<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,600" rel="stylesheet">-->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <link rel="stylesheet" href="./css/style.css" />
+
+</head>
+
+
+<!--nav bar-->
+
+<body>
+  <header>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
+        aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Food Hunter</a>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="login.html">Log In</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="signup.html">Sign Up</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="About.html">About</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <!--end nav bar-->
+
+  <!-- main -->
+  <main>
+    <section class="signup">
+      <h2>Sign Up</h2>
+      <div class="form-wrapper">
+        <form class="signup-form" action="">
+          <input type="text" id="name" placeholder="Name" />
+
+
+          <!-- hacemos el input email type text para que no moleste la validación -->
+          <input type="text" id="email" placeholder="Email" />
+          <input type="password" id="password" placeholder="password" />
+          <input type="password" id="repeat-password" placeholder="repeat-password" />
+
+          <!-- El atríbuto `disabled` desactiva el botón. El botón será activado o desactivado por el método `checkButton` en Signup.js -->
+          <button type="submit" class="button" id="signup-button" disabled>Sign Up</button>
+        </form>
+        <div class="message-container">
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="scripts/Signup.js"></script>
+  <script src="scripts/User.js"></script>
+  <script src="scripts/Database.js"></script>
+  <script src="scripts/Validator.js"></script>
+</body>
+
+</html>
