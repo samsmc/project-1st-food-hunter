@@ -40,14 +40,10 @@ const getAllRecipes = async (recipe) => {
         recipe = allRecipes.meals[i]
         let div = document.createElement('div');
         div.innerHTML = `
-        <div class="container-fluid" >
-        <div class="row d-flex justify-content-around" id="recipe-list-container">
-        </div>
-      </div>
       <div class="card m-3">
         <img src="${recipe.strMealThumb}" class="card-img-top" alt="Photo of ${recipe.strMeal}">
         <div class="card-body">
-          <h5 class="card-title burbank text-md">${recipe.strMeal}</h5>
+          <h4 class="card-title burbank text-md">${recipe.strMeal}</h4>
         </div>
         <form>
           <input type="number" value="${recipe.idMeal}" class="invisible"></input>
@@ -91,7 +87,8 @@ const getId = async (idValue) => {
           <img class="card-img-top rounded" src="${x.strMealThumb}" alt="Photo of ${x.strMeal}">
           </div>
           <div class="col-lg-6 col-md-6 col-sm-12">
-            <h5 class="burbank text-md">${x.strCategory}</h5><div class="row">
+            <h5 class="burbank text-md">${x.strMeal}</h5>
+            <div class="row">
     <div class="col-12" id="badges"></div>
   </div>
 </div>
@@ -119,8 +116,8 @@ for (const property in x) {
   </div>
   </div>
   </div>
-  <div class="card-footer text-center"><button type="submit" class="btn bg-lettuce burbank text-white"
-              onclick="getRecipeId(event)">Go back</button>
+  <div class="card-footer text-center">
+  <button type="submit" id="animation" class="btn bg-lettuce burbank text-white" onclick="window.location.href='cuisineList.html'">Go back</button>
   `;
 
 

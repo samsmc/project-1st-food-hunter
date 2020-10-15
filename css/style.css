@@ -117,11 +117,23 @@
   
   /* Home page background image */
   .home-image {
+    display: flex;
+    align-items: center;
+    /*justify-content: flex-end;*/
     height: 50rem;
     padding-bottom: 30px;
     background: url(../images/img-background.jpg) no-repeat center center;
     background-size: cover;
+    
   }
+
+  /* h3 {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  left: 50%;
+  position: absolute;
+  } */
 
   #imageBackground2 {
     height: 50rem;
@@ -218,3 +230,48 @@
     width: 25px;
     height: 25px;
   }
+
+  .dark-background {
+    display: flex;
+    justify-content: flex-end;
+    color: black;
+  }
+
+  .address {
+    font-size: 0.8em;
+    font-style: normal;
+    margin-bottom: 30px;
+  }
+
+  h5 {
+    font-size: 1.2em;
+    line-height: 1em;
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+
+  #animation:before {
+      content: "";
+      position: absolute;
+      width: 90%;
+      left: 50%;
+      transform: translateX(-50%);
+      top: 100%;
+      height: 10px;
+      
+      background-image: radial-gradient(ellipse, rgba(0,0,0,0.35) 35%, rgb(255,255,255) 80%);
+      transition: all 0.3s;
+      opacity: 0;
+    }
+    
+    #animation:hover {
+      /* Mueve la caja hacia arriba */
+         transform: translateY(-5px);
+    }
+    
+    #animation:hover:before {
+       /* Mueve la sombra hacia abajo y hace aprecer la sombra (previamente camuflada por transparencia) */
+        top: 105%;
+        opacity: 1;
+        
+    }
