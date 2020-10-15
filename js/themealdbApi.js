@@ -34,12 +34,13 @@ const getAllRecipes = async (recipe) => {
     console.log(document.getElementById("cuisine").value)
     var deleteSection = document.getElementsByClassName('home-imageCuisine')[0];
     deleteSection.innerHTML = "";
+    deleteSection.style.background = "none";
     var recipe
     for (let i = 0; i < 7; i++) {
         recipe = allRecipes.meals[i]
         let div = document.createElement('div');
         div.innerHTML = `
-        <div class = "home-imageCuisine" class="container-fluid" >
+        <div class="container-fluid" >
         <div class="row d-flex justify-content-around" id="recipe-list-container">
         </div>
       </div>
@@ -51,12 +52,12 @@ const getAllRecipes = async (recipe) => {
         <form>
           <input type="number" value="${recipe.idMeal}" class="invisible"></input>
           <div class="card-footer text-center"><button type="submit" class="btn bg-lettuce burbank text-white"
-              onclick="getRecipeId(event)">Bon Appétit!</button>
+              onclick="getId(${recipe.idMeal})">Bon Appétit!</button>
             <div>
         </form>
       </div>
           `;
-        //console.log(deleteSection)
+        //console.log(recipe.idMeal)
         deleteSection.appendChild(div);
 
     }
@@ -67,17 +68,22 @@ go.addEventListener('click', () => getAllRecipes(document.getElementById("cuisin
 
 
 //Get 'ID' of the Recipe
-const getId = async (idValue) => {
-    const recipe = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${idValue}`);
+const getId = async (idValue) => { 
+  event.preventDefault()
+  //alert("Mostrar receta " + idValue);
+  const recipe = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${idValue}`);
+    //alert("test");
     const data = await recipe.json();
     const x = data.meals[0];
-    //console.log(x);
+    //alert(x);
    // console.log(document.getElementsByClassName("home-imageCuisine"));
     var deleteSection = document.getElementsByClassName('home-imageCuisine')[0];
     deleteSection.innerHTML = "";
+    deleteSection.style.background = "none";
     let div = document.createElement('div');
     
-    let htmlTexto = `<div class="container mt-3">
+    let htmlTexto = `
+    <div class="container mt-3">
     <div class="row" id="main-div">
       <div class="col-12 border rounded">
         <div class="row pt-3">
@@ -123,7 +129,5 @@ for (const property in x) {
    
     //console.log("Se ha creado la pagina")
     deleteSection.appendChild(div);
-   
-    
 }
 

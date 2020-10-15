@@ -123,7 +123,7 @@
     background-size: cover;
   }
 
-  .home-imageCuisine {
+  #imageBackground2 {
     height: 50rem;
     padding-bottom: 30px;
     background: url(../images/chefs.png) no-repeat center center;
