@@ -78,39 +78,48 @@ const getId = async (idValue) => {
     deleteSection.style.background = "none";
     let div = document.createElement('div');
     
-    let htmlTexto = 
-    `
+    let htmlTexto = `
     <div class="container mt-3">
     <div class="row" id="main-div">
       <div class="col-12 border rounded">
         <div class="row pt-3">
           <div class="col-lg-6 col-md-6 col-sm-12">
-          <img class="card-img-top rounded" src="${x.strMealThumb}" alt="Photo of ${x.strMeal}">
+            <img class="card-img-top rounded" src="${x.strMealThumb}"
+              alt="Photo of ${x.strMeal}">
           </div>
           <div class="col-lg-6 col-md-6 col-sm-12">
             <h5 class="burbank text-md">${x.strMeal}</h5>
-            <br>
             <p class="burbank">${x.strArea}: <span class="text-lettuce text-sm">
                 ${x.strTags}</span></p>
             <div class="row">
-    <div class="col-12" id="badges"></div>
-  </div>
-</div>
-</div>
-<div class="row">
-<div class="col-12 pt-3">
-  <h5 class="burbank text-md">Ingredients</h5>
-  <ul id="recipe-ingredients"></ul>
-            <h5 class="burbank text-md">How to make it?</h5>
-            <br>
-            <p>${x.strInstructions}</p>
-            <br>
+              <div class="col-12" id="badges"></div>
+            </div>
           </div>
-          <p class="burbank">Source: <span class="text-lettuce text-sm">${x.strSource}</span></p>
+        </div>
+        <div class="row">
+          <div class="col-12 pt-3">
+            <h5 class="burbank text-md">Ingredients</h5>
+            <ul id="recipe-ingredients"></ul>
+            <h5 class="burbank text-md">How to make it?</h5>
+            <p>${x.strInstructions}</p>
+          </div>
         </div>
       </div>
     </div>
-  </div>`;
+  </div>
+  console.log(x)
+let propiedades = Object.keys(x);
+
+for (const property in x) {  
+    console.log(property + ': ' + x[property]);
+    //if (property.contain("Ingredient")) {
+        htmlTexto = htmlTexto + `<h5 class="burbank text-md">` + x[property] + `</h5>`;
+    //} else {
+        // no hacer nada
+    //}
+   
+    
+}
   htmlTexto = htmlTexto + `</ul> 
   </div>
   </div>
@@ -120,41 +129,12 @@ const getId = async (idValue) => {
   <div class="card-footer text-center">
   <button type="submit" id="animation" class="btn bg-lettuce burbank text-white" onclick="window.location.href='cuisineList.html'">Go back</button>
   `;
- //console.log(x)
- let propiedades = Object.keys(x);
 
- for (const property in x) {  
-     //console.log(property + ': ' + x[property]);
-     if (property.includes("Ingredient")) {
-         //htmlTexto = htmlTexto + `<h5 class="burbank text-md">` + x[property] + `</h5>`;
-     } else if(property.includes("Measure")) {
-       //htmlTexto = htmlTexto + `<h5 class="burbank text-md">` + x[property] + `</h5>`;
-     }
-    
-     
- }
 
 //console.log(htmlTexto);
     div.innerHTML = htmlTexto;
    
     //console.log("Se ha creado la pagina")
     deleteSection.appendChild(div);
-
-/*     // Get ingredients
-  let ingredients = [];
-  for (let i = 0; i < x.extendedIngredients.length; i++) {
-    if(x.extendedIngredients[i].contains("Ingredient")){
-      ingredients.push(x.extendedIngredients[i]);
-    }
-    
-  } */
-
-  // Insert ingredients in the DOM
-  /* const ingredientDiv = document.querySelector('#recipe-ingredients');
-  ingredients.forEach(ingredient => {
-    ingredientDiv.insertBefore('beforeend',
-    `<li>${ingredient.strIngredient3}</li>`);
-  }); */
-
 }
 
