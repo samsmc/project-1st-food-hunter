@@ -7,8 +7,6 @@ https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js
 class Signup {
   constructor () {
     this.nameInput = document.querySelector("#name");
-    this.pokemonInput = document.querySelector("#pokemon");
-    this.typeInput = document.querySelector("#type");
     this.emailInput = document.querySelector("#email");
     this.passwordInput = document.querySelector("#password");
     this.repeatPasswordInput = document.querySelector("#repeat-password");
@@ -78,13 +76,11 @@ class Signup {
     event.preventDefault();
     // recoger los valores de cada input
     const name = this.nameInput.value;
-    const pokemon = this.pokemonInput.value;
-    const type = this.typeInput.value;
     const email = this.emailInput.value;
     const password = this.passwordInput.value;
     const repeatPassword = this.repeatPasswordInput.value;
 
-    const newUser = new User(name, pokemon, type, email, password);
+    const newUser = new User(name, email, password);
 
     // guardar el nuevo usuario en la base de datos ( simulada :D )
     db.saveNewUser( newUser );
@@ -93,8 +89,6 @@ class Signup {
 
     // vaciar el form
     this.nameInput.value = "";
-    this.pokemonInput.value = "";
-    this.typeInput.value = "";
     this.emailInput.value = "";
     this.passwordInput.value = "";
     this.repeatPasswordInput.value = "";

@@ -7,7 +7,6 @@ class Login {
   constructor() {
     this.emailInput = document.querySelector("#email");
     this.passwordInput = document.querySelector("#password");
-
     this.loginButton = document.querySelector("#login-button");
     this.messageContainer = document.querySelector(".message-container");
   }
@@ -56,7 +55,7 @@ class Login {
   }
 
   redirect = () => {
-    setTimeout( ()=> location.assign('dashboard.html'), 2000);
+    setTimeout( ()=> location.assign('cuisineList.html'), 2000);
   }
 
 }

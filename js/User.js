@@ -5,10 +5,8 @@ https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js
 
 
 class User {
-  constructor(name, pokemon, type, email, password) {
+  constructor(name, email, password) {
     this.name = name;
-    this.pokemon = pokemon;
-    this.type = type;
     this.email = email;
     this.password = password;
   }
