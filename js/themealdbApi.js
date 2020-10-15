@@ -51,7 +51,7 @@ const getAllRecipes = async (recipe) => {
         <form>
           <input type="number" value="${recipe.idMeal}" class="invisible"></input>
           <div class="card-footer text-center"><button type="submit" class="btn bg-lettuce burbank text-white"
-              onclick="getRecipeId(event)">Let's make it!</button>
+              onclick="getRecipeId(event)">Bon Appétit!</button>
             <div>
         </form>
       </div>
@@ -113,6 +113,8 @@ for (const property in x) {
   </div>
   </div>
   </div>
+  <div class="card-footer text-center"><button type="submit" class="btn bg-lettuce burbank text-white"
+              onclick="getRecipeId(event)">Go back</button>
   `;
 
 
