@@ -39,7 +39,7 @@ const getAllRecipes = async (recipe) => {
         recipe = allRecipes.meals[i]
         let div = document.createElement('div');
         div.innerHTML = `
-        <div class="container-fluid">
+        <div class = "home-imageCuisine" class="container-fluid" >
         <div class="row d-flex justify-content-around" id="recipe-list-container">
         </div>
       </div>
@@ -68,7 +68,6 @@ go.addEventListener('click', () => getAllRecipes(document.getElementById("cuisin
 
 //Get 'ID' of the Recipe
 const getId = async (idValue) => {
-
     const recipe = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${idValue}`);
     const data = await recipe.json();
     const x = data.meals[0];
@@ -122,15 +121,6 @@ for (const property in x) {
    
     //console.log("Se ha creado la pagina")
     deleteSection.appendChild(div);
-   
-    //console.log("obtenido" + getIdUrl);
-    //const ids = await getIdUrl.json();
-    //const idList = ids
-    //let idLink = ids.meals.idMeal
-    //or let idLink = country[2] ?
-
-    // Display choosen recipe (como passar o valor de 'let idLink'?)
-
    
     
 }
