@@ -2,16 +2,16 @@
 
 // Get data from JSON API using async/await and add to the dropdow.
 const getCountries = async () => {
-    const countriesUrl = await fetch("https://www.themealdb.com/api/json/v1/1/list.php?a=list");
-    const countries = await countriesUrl.json();
-    const countryList = countries;
-    //console.log(countries);
-    countries.meals.forEach(country => {
-        let option = document.createElement('option')
-        option.value = country.strArea
-        option.innerText = country.strArea
-        document.getElementById('cuisine').appendChild(option)
-    })
+  const countriesUrl = await fetch("https://www.themealdb.com/api/json/v1/1/list.php?a=list");
+  const countries = await countriesUrl.json();
+  const countryList = countries;
+  //console.log(countries);
+  countries.meals.forEach(country => {
+    let option = document.createElement('option')
+    option.value = country.strArea
+    option.innerText = country.strArea
+    document.getElementById('cuisine').appendChild(option)
+  })
 }
 getCountries();
 
@@ -27,19 +27,19 @@ var go = document.getElementById("go")
 
 // Display list of recipes, Post recipes to the DOM
 const getAllRecipes = async (recipe) => {
-    console.log(recipe)
-    const recipesUrl = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?a=${recipe}`);
-    const allRecipes = await recipesUrl.json();
-    console.log(allRecipes)
-    console.log(document.getElementById("cuisine").value)
-    var deleteSection = document.getElementsByClassName('home-imageCuisine')[0];
-    deleteSection.innerHTML = "";
-    deleteSection.style.background = "none";
-    var recipe
-    for (let i = 0; i < 7; i++) {
-        recipe = allRecipes.meals[i]
-        let div = document.createElement('div');
-        div.innerHTML = `
+  console.log(recipe)
+  const recipesUrl = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?a=${recipe}`);
+  const allRecipes = await recipesUrl.json();
+  console.log(allRecipes)
+  console.log(document.getElementById("cuisine").value)
+  var deleteSection = document.getElementsByClassName('home-imageCuisine')[0];
+  deleteSection.innerHTML = "";
+  deleteSection.style.background = "none";
+  var recipe
+  for (let i = 0; i < 7; i++) {
+    recipe = allRecipes.meals[i]
+    let div = document.createElement('div');
+    div.innerHTML = `
       <div class="card m-3">
         <img src="${recipe.strMealThumb}" class="card-img-top" alt="Photo of ${recipe.strMeal}">
         <div class="card-body">
@@ -53,32 +53,30 @@ const getAllRecipes = async (recipe) => {
         </form>
       </div>
           `;
-        //console.log(recipe.idMeal)
-        deleteSection.appendChild(div);
+    //console.log(recipe.idMeal)
+    deleteSection.appendChild(div);
 
-    }
-    //console.log(allRecipes);
+  }
+  //console.log(allRecipes);
 }
 go.addEventListener('click', () => getAllRecipes(document.getElementById("cuisine").value))
 
 
 
 //Get 'ID' of the Recipe
-const getId = async (idValue) => { 
+const getId = async (idValue) => {
   event.preventDefault()
-  //alert("Mostrar receta " + idValue);
+
   const recipe = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${idValue}`);
-    //alert("test");
-    const data = await recipe.json();
-    const x = data.meals[0];
-    //alert(x);
-   // console.log(document.getElementsByClassName("home-imageCuisine"));
-    var deleteSection = document.getElementsByClassName('home-imageCuisine')[0];
-    deleteSection.innerHTML = "";
-    deleteSection.style.background = "none";
-    let div = document.createElement('div');
-    
-    let htmlTexto = 
+  const data = await recipe.json();
+  const x = data.meals[0];
+
+  var deleteSection = document.getElementsByClassName('home-imageCuisine')[0];
+  deleteSection.innerHTML = "";
+  deleteSection.style.background = "none";
+  let div = document.createElement('div');
+  let instrucciones = x.strInstructions;
+  let htmlTexto =
     `
     <div class="container mt-3">
     <div class="row" id="main-div">
@@ -103,7 +101,7 @@ const getId = async (idValue) => {
   <ul id="recipe-ingredients"></ul>
             <h5 class="burbank text-md">How to make it?</h5>
             <br>
-            <p>${x.strInstructions}</p>
+            <p>${instrucciones}</p>
             <br>
           </div>
           <p class="burbank">Source: <span class="text-lettuce text-sm">${x.strSource}</span></p>
@@ -120,41 +118,38 @@ const getId = async (idValue) => {
   <div class="card-footer text-center">
   <button type="submit" id="animation" class="btn bg-lettuce burbank text-white" onclick="window.location.href='cuisineList.html'">Go back</button>
   `;
- //console.log(x)
- let propiedades = Object.keys(x);
 
- for (const property in x) {  
-     //console.log(property + ': ' + x[property]);
-     if (property.includes("Ingredient")) {
-         //htmlTexto = htmlTexto + `<h5 class="burbank text-md">` + x[property] + `</h5>`;
-     } else if(property.includes("Measure")) {
-       //htmlTexto = htmlTexto + `<h5 class="burbank text-md">` + x[property] + `</h5>`;
-     }
-    
-     
- }
+  div.innerHTML = htmlTexto;
+  deleteSection.appendChild(div);
+  const ingredientDiv = document.querySelector('#recipe-ingredients');
+  ingredientDiv.innerHTML = "";
+  let ul = document.createElement('ul');
+  ul.id = "recipe-ingredients";
+  let htmlIngredients = ``;
+  let propiedades = Object.keys(x);
 
-//console.log(htmlTexto);
-    div.innerHTML = htmlTexto;
-   
-    //console.log("Se ha creado la pagina")
-    deleteSection.appendChild(div);
+  for (const property in x) {
 
-/*     // Get ingredients
-  let ingredients = [];
-  for (let i = 0; i < x.extendedIngredients.length; i++) {
-    if(x.extendedIngredients[i].contains("Ingredient")){
-      ingredients.push(x.extendedIngredients[i]);
+    if (property.includes("Ingredient") && x[property] != ("") && x[property] != null) {
+      let ingredientNumber = 0;
+      if (property.length == 14) {
+        ingredientNumber = property.substring(13, 14);
+      } else if (property.length == 15) {
+        ingredientNumber = property.substring(13, 15);
+      }
+
+      let strMeasure = "strMeasure" + ingredientNumber;
+
+      htmlIngredients = htmlIngredients + `<li>${x[strMeasure] + " " + x[property]}</li>`;
+    } else if (property.includes("Measure")) {
+
     }
-    
-  } */
 
-  // Insert ingredients in the DOM
-  /* const ingredientDiv = document.querySelector('#recipe-ingredients');
-  ingredients.forEach(ingredient => {
-    ingredientDiv.insertBefore('beforeend',
-    `<li>${ingredient.strIngredient3}</li>`);
-  }); */
+
+  }
+  ul.innerHTML = htmlIngredients;
+  ingredientDiv.appendChild(ul);
+
 
 }
 
