@@ -35,12 +35,15 @@ const getAllRecipes = async (recipe) => {
   var deleteSection = document.getElementsByClassName('home-imageCuisine')[0];
   deleteSection.innerHTML = "";
   deleteSection.style.background = "none";
+  let testeDiv = document.createElement('div')
+  testeDiv.setAttribute('class','cartas')
+  deleteSection.appendChild(testeDiv);
   var recipe
   for (let i = 0; i < 7; i++) {
     recipe = allRecipes.meals[i]
     let div = document.createElement('div');
     div.innerHTML = `
-      <div class="card m-3">
+      <div class="card m-3" id="carta">
         <img src="${recipe.strMealThumb}" class="card-img-top" alt="Photo of ${recipe.strMeal}">
         <div class="card-body">
           <h4 class="card-title burbank text-md">${recipe.strMeal}</h4>
@@ -54,7 +57,8 @@ const getAllRecipes = async (recipe) => {
       </div>
           `;
     //console.log(recipe.idMeal)
-    deleteSection.appendChild(div);
+    //deleteSection.appendChild(div);
+    testeDiv.appendChild(div);
 
   }
   //console.log(allRecipes);
@@ -109,14 +113,9 @@ const getId = async (idValue) => {
       </div>
     </div>
   </div>`;
-  htmlTexto = htmlTexto + `</ul> 
-  </div>
-  </div>
-  </div>
-  </div>
-  </div>
+  htmlTexto = htmlTexto + `
   <div class="card-footer text-center">
-  <button type="submit" id="animation" class="btn bg-lettuce burbank text-white" onclick="window.location.href='cuisineList.html'">Go back</button>
+  <button type="submit" id="animation" class="btn bg-lettuce burbank text-white" onclick="window.location.href='cuisineList.html'">Go back</button></div>
   `;
 
   div.innerHTML = htmlTexto;
@@ -144,12 +143,9 @@ const getId = async (idValue) => {
     } else if (property.includes("Measure")) {
 
     }
-
-
   }
   ul.innerHTML = htmlIngredients;
   ingredientDiv.appendChild(ul);
-
 
 }
 
