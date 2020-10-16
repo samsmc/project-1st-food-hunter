@@ -39,18 +39,18 @@ const getAllRecipes = async (recipe) => {
   testeDiv.setAttribute('class','cartas')
   deleteSection.appendChild(testeDiv);
   var recipe
-  for (let i = 0; i < 7; i++) {
+  for (let i = 0; i < 8; i++) {
     recipe = allRecipes.meals[i]
     let div = document.createElement('div');
     div.innerHTML = `
-      <div class="card m-3" id="carta">
+      <div class="card m-3">
         <img src="${recipe.strMealThumb}" class="card-img-top" alt="Photo of ${recipe.strMeal}">
-        <div class="card-body">
-          <h4 class="card-title burbank text-md">${recipe.strMeal}</h4>
+        <div class="">
+          <h4 class="burbank text-sm">${recipe.strMeal}</h4>
         </div>
         <form>
           <input type="number" value="${recipe.idMeal}" class="invisible"></input>
-          <div class="card-footer text-center"><button type="submit" class="btn bg-lettuce burbank text-white"
+          <div class=""><button type="submit" class="btn bg-lettuce burbank text-white"
               onclick="getId(${recipe.idMeal})">Bon Appétit!</button>
             <div>
         </form>

@@ -9,7 +9,7 @@ The __MVP__ will cover the following:
 
 - __Homepage:__ The homepage will present the apps concept and features and provide links to the rest of the site.
 - __Cousine:__ A user will be able to search the recipe database by selecting the ingredients they have in their kitchen.
-- __FAQ:__ Everything you always wanted to know about ***Food Hunter?*** but were too afraid to ask.
+- __About:__ Everything you always wanted to know about ***Food Hunter?*** but were too afraid to ask.
 - __Signup:__ A registration form for new users.
 - __Login:__ A sign in form for existing users.
 
@@ -27,17 +27,19 @@ The __MVP__ will cover the following:
 - **root/**
      - index.html
      - cousine.html
-     - faq.html
+     - about.html
      - register.html
      - signin.html
      - **css/**
           - style.css
      - **js/**
-          - main.js
+          - index.js
+          - themealdbApi.js
+          - Login.js
           - Signup.js
           - User.js
           - Validator.js
-          - spoonacularApi.js
+          - Database.js
      - **assets/**
           - img/
           - fonts/
@@ -48,7 +50,7 @@ Classes and methods definition
 
 
 ## APIs
-The API(s) you are using
+[The Meal DB](https://www.themealdb.com/api.php?ref=apilist.fun)
 
 
 ## Links
@@ -60,18 +62,14 @@ The API(s) you are using
 
 ### Github
 URls for the project repo and deploy
-[Link Repo](http://github.com)
+[Link Repo](https://github.com/samsmc/project-1st-food-hunter)
 [Link Deploy](http://github.com)
 
 
 ### Slides
 URls for the project presentation (slides)
-[Link Slides.com](http://slides.com)
+[Link Slides](https://docs.google.com/presentation/d/1fHXSolFjcC7mTj8wZklzYPWtoAFC0CS8ipgyE-tEY-s/edit?usp=sharing)
 
-### Spoonacular
-[API Description](https://spoonacular.com/application/frontend/downloads/spoonacular-api-slides.pdf)
-
-[API Documentation](https://spoonacular.com/food-api/docs)
 
 ```
 

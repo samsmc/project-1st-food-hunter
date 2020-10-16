@@ -283,4 +283,11 @@ h5 {
 .cartas div {
 width: 300px;
 margin: 20px;
+text-align:left;
+height: 530px;
+
 } 
+
+.burbank text-sm {
+  padding-right: 20px;
+}
